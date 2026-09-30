@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="pagehead"><p class="eyebrow">YOUR DASHBOARD</p><h1>Your smart planning space.</h1><p id="welcome">Loading your personalized workspace...</p></section>
+<section class="grid three">
+  <a class="card planner-card" href="/planner/home"><div class="planner-icon">🏠</div><b>Home Planner</b><span>Plan rooms, furniture and decor around your budget.</span><div class="arrow">↗</div></a>
+  <a class="card planner-card" href="/planner/party"><div class="planner-icon">🎉</div><b>Party Planner</b><span>Build an event plan with guests, venue and spending.</span><div class="arrow">↗</div></a>
+  <a class="card planner-card" href="/planner/jewelry"><div class="planner-icon">💎</div><b>Jewelry Planner</b><span>Find style-aware jewelry ideas and save your plans.</span><div class="arrow">↗</div></a>
+</section>
+<section class="dashboard-banner"><div class="smart-banner"><div><h2>✨ Ready for your next plan?</h2><p>Choose a planner, enter your budget and let PocketSmart do the organizing.</p></div><a class="btn primary" href="/history">View History →</a></div></section>
+<section class="card" style="max-width:1120px"><div class="row"><h2 style="font-family:'Space Grotesk';margin:0">Recent plans</h2><a href="/history" style="color:var(--purple);font-weight:800;text-decoration:none">See all →</a></div><div id="recent" class="history-list"><div class="loading"><span class="spinner"></span> Loading recent plans...</div></div></section>
+{% endblock %}

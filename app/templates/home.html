@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="pagehead">
+
+    <p class="eyebrow">AI HOME PLANNER</p>
+
+    <h1>
+        Design your space<br>
+        within budget.
+    </h1>
+
+    <p>
+        Turn a budget and a few preferences into a practical home interior plan.
+    </p>
+
+</section>
+
+
+<section class="card form">
+
+    <div class="form-header">
+
+        <div class="form-icon">🏠</div>
+
+        <div>
+            <h2>Home Interior Planner</h2>
+            <p>Smart allocation • Furniture • Decor • Lighting</p>
+        </div>
+
+    </div>
+
+
+    <form id="homeForm">
+
+        <div class="form-grid">
+
+            <!-- Total Budget -->
+            <div class="field">
+
+                <label for="budget">
+                    Total budget (₹)
+                </label>
+
+                <input
+                    id="budget"
+                    name="budget"
+                    type="number"
+                    min="1"
+                    required
+                    placeholder="Enter your budget"
+                >
+
+            </div>
+
+
+            <!-- Rooms -->
+            <div class="field">
+
+                <label for="rooms">
+                    Rooms
+                </label>
+
+                <input
+                    id="rooms"
+                    name="rooms"
+                    type="text"
+                    required
+                    placeholder="Enter rooms, e.g. Living Room, Bedroom"
+                >
+
+            </div>
+
+
+            <!-- Preferred Style -->
+            <div class="field">
+
+                <label for="style">
+                    Preferred style
+                </label>
+
+                <select
+                    id="style"
+                    name="style"
+                    required
+                >
+                    <option value="" disabled selected>
+                        Select your preferred style
+                    </option>
+
+                    <option value="Modern">
+                        Modern
+                    </option>
+
+                    <option value="Minimal">
+                        Minimal
+                    </option>
+
+                    <option value="Traditional">
+                        Traditional
+                    </option>
+
+                    <option value="Luxury">
+                        Luxury
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- More Preferences -->
+            <div class="field full">
+
+                <label for="notes">
+                    More preferences
+                </label>
+
+                <textarea
+                    id="notes"
+                    name="notes"
+                    placeholder="Enter your colors, room size, storage needs, or must-have items..."
+                ></textarea>
+
+                <div class="hint">
+                    Tip: mention colors, room size, storage needs or must-have items.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="btn primary"
+            type="submit"
+        >
+            ✦ Generate Smart Home Plan
+        </button>
+
+    </form>
+
+</section>
+
+
+<div
+    id="results"
+    class="result-shell"
+></div>
+
+
+{% endblock %}

@@ -1,0 +1,380 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="auth">
+
+    <div class="card">
+
+        <p class="eyebrow">GET STARTED</p>
+
+        <h2>Create your PocketSmart account.</h2>
+
+        <p>Save your plans and revisit recommendations anytime.</p>
+
+
+        <form
+            id="registerForm"
+            class="form register-form"
+            style="padding:0; box-shadow:none; border:0; background:transparent;"
+        >
+
+            <!-- Name -->
+            <div class="register-field">
+
+                <label for="name">
+                    Name
+                </label>
+
+                <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Enter your name"
+                >
+
+            </div>
+
+
+            <!-- Email -->
+            <div class="register-field">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="Enter your email"
+                >
+
+            </div>
+
+
+            <!-- Password -->
+            <div class="register-field">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        minlength="6"
+                        required
+                        placeholder="Enter your password"
+                    >
+
+                    <button
+                        type="button"
+                        id="togglePassword"
+                        class="password-eye"
+                        aria-label="Show password"
+                    >
+                        👁️
+                    </button>
+
+                </div>
+
+
+                <!-- Password Requirements -->
+                <div class="password-requirements">
+
+                    <p id="lengthCheck">
+                        ○ At least 6 characters
+                    </p>
+
+                    <p id="uppercaseCheck">
+                        ○ One uppercase letter
+                    </p>
+
+                    <p id="numberCheck">
+                        ○ One number
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Submit Button -->
+            <button
+                class="btn primary register-button"
+                type="submit"
+            >
+                Create Account ✦
+            </button>
+
+
+            <!-- Message -->
+            <p id="msg"></p>
+
+        </form>
+
+
+        <small>
+            Already registered?
+            <a href="/login">Sign in</a>
+        </small>
+
+    </div>
+
+</section>
+
+
+<style>
+
+/* ============================= */
+/* Registration Form             */
+/* ============================= */
+
+.register-form {
+    width: 100%;
+}
+
+.register-field {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+
+/* Labels */
+
+.register-field > label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+
+/* Normal Inputs */
+
+.register-field > input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ============================= */
+/* Password Input                */
+/* ============================= */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+
+/* Password input */
+
+.password-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+
+    /* Space for eye icon */
+    padding-right: 48px;
+}
+
+
+/* Eye button */
+
+.password-eye {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 17px;
+    line-height: 1;
+
+    z-index: 2;
+}
+
+
+/* Remove button hover background */
+
+.password-eye:hover {
+    background: transparent;
+}
+
+
+/* ============================= */
+/* Password Requirements          */
+/* ============================= */
+
+.password-requirements {
+    margin-top: 8px;
+    padding-left: 2px;
+}
+
+.password-requirements p {
+    margin: 3px 0;
+
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+
+/* ============================= */
+/* Register Button               */
+/* ============================= */
+
+.register-button {
+    width: 100%;
+    margin-top: 8px;
+}
+
+</style>
+
+
+<script>
+
+/* ============================= */
+/* Password Elements             */
+/* ============================= */
+
+const password = document.getElementById("password");
+
+const togglePassword =
+    document.getElementById("togglePassword");
+
+const lengthCheck =
+    document.getElementById("lengthCheck");
+
+const uppercaseCheck =
+    document.getElementById("uppercaseCheck");
+
+const numberCheck =
+    document.getElementById("numberCheck");
+
+
+/* ============================= */
+/* Live Password Validation       */
+/* ============================= */
+
+password.addEventListener("input", function () {
+
+    const value = password.value;
+
+
+    /* Minimum 6 characters */
+
+    if (value.length >= 6) {
+
+        lengthCheck.textContent =
+            "✓ At least 6 characters";
+
+        lengthCheck.style.color = "green";
+
+    } else {
+
+        lengthCheck.textContent =
+            "○ At least 6 characters";
+
+        lengthCheck.style.color = "";
+
+    }
+
+
+    /* Uppercase letter */
+
+    if (/[A-Z]/.test(value)) {
+
+        uppercaseCheck.textContent =
+            "✓ One uppercase letter";
+
+        uppercaseCheck.style.color = "green";
+
+    } else {
+
+        uppercaseCheck.textContent =
+            "○ One uppercase letter";
+
+        uppercaseCheck.style.color = "";
+
+    }
+
+
+    /* Number */
+
+    if (/[0-9]/.test(value)) {
+
+        numberCheck.textContent =
+            "✓ One number";
+
+        numberCheck.style.color = "green";
+
+    } else {
+
+        numberCheck.textContent =
+            "○ One number";
+
+        numberCheck.style.color = "";
+
+    }
+
+});
+
+
+/* ============================= */
+/* Show / Hide Password           */
+/* ============================= */
+
+togglePassword.addEventListener("click", function () {
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+        togglePassword.textContent = "🙈";
+
+        togglePassword.setAttribute(
+            "aria-label",
+            "Hide password"
+        );
+
+    } else {
+
+        password.type = "password";
+
+        togglePassword.textContent = "👁️";
+
+        togglePassword.setAttribute(
+            "aria-label",
+            "Show password"
+        );
+
+    }
+
+});
+
+</script>
+
+
+{% endblock %}

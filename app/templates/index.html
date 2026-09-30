@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">GENAI BUDGET ASSISTANT</p>
+    <h1>Plan smarter.<br><span>Live beautifully.</span></h1>
+    <p>One elegant AI assistant for home interiors, parties and jewelry. Tell PocketSmart your budget and preferences — get a practical plan in seconds.</p>
+    <div class="actions"><a class="btn primary" href="/register">✦ Get Started</a><a class="btn ghost" href="/login">Sign In</a></div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-orb">✦</div>
+    <h3>Your personal smart planner</h3>
+    <p>Budget-aware recommendations, clear allocations and optional Gemini AI support — all inside one simple experience.</p>
+    <div class="mini-stat"><div><strong>3</strong><br><span>Smart planners</span></div><div><strong>₹</strong><br><span>Budget first</span></div><div><strong>AI</strong><br><span>Assisted ideas</span></div></div>
+  </div>
+</section>
+<section class="grid three">
+  <a class="card planner-card" href="/planner/home"><div class="planner-icon">🏠</div><b>Home Interior</b><span>Furniture, lighting, decor and room planning without losing control of your budget.</span><div class="arrow">↗</div></a>
+  <a class="card planner-card" href="/planner/party"><div class="planner-icon">🎉</div><b>Party Planner</b><span>Organize guests, venue, food and event spending with a clear budget split.</span><div class="arrow">↗</div></a>
+  <a class="card planner-card" href="/planner/jewelry"><div class="planner-icon">💎</div><b>Jewelry Planner</b><span>Explore occasion, style and metal-based jewelry ideas within your budget.</span><div class="arrow">↗</div></a>
+</section>
+{% endblock %}

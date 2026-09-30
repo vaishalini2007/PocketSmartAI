@@ -1,0 +1,121 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="pagehead">
+    <p class="eyebrow">AI PARTY PLANNER</p>
+    <h1>Celebrate more.<br>Stress less.</h1>
+    <p>Plan guests, venue and event spending with a clear budget-aware recommendation.</p>
+</section>
+
+<section class="card form">
+
+    <div class="form-header">
+        <div class="form-icon">🎉</div>
+
+        <div>
+            <h2>Party Planner</h2>
+            <p>Guests • Venue • Food • Entertainment</p>
+        </div>
+    </div>
+
+    <form id="partyForm">
+
+        <div class="form-grid">
+
+            <!-- Total Budget -->
+            <div class="field">
+                <label>
+                    Total budget (₹)
+                    <input
+                        name="budget"
+                        type="number"
+                        min="1"
+                        required
+                        placeholder="Enter your budget"
+                    >
+                </label>
+            </div>
+
+            <!-- Number of Guests -->
+            <div class="field">
+                <label>
+                    Number of guests
+                    <input
+                        name="guests"
+                        type="number"
+                        min="1"
+                        required
+                        placeholder="Enter number of guests"
+                    >
+                </label>
+            </div>
+
+            <!-- Event Type -->
+            <div class="field">
+                <label>
+                    Event type
+                    <select name="event_type" required>
+                        <option value="" disabled selected>Select event type</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Corporate">Corporate</option>
+                        <option value="Anniversary">Anniversary</option>
+                        <option value="College Event">College Event</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- Venue -->
+            <div class="field">
+                <label>
+                    Venue
+                    <select name="venue" required>
+                        <option value="" disabled selected>Select venue</option>
+                        <option value="Indoor">Indoor</option>
+                        <option value="Outdoor">Outdoor</option>
+                        <option value="Banquet Hall">Banquet Hall</option>
+                        <option value="Home">Home</option>
+                        <option value="Hotel">Hotel</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- City -->
+            <div class="field">
+                <label>
+                    City
+                    <input
+                        name="city"
+                        type="text"
+                        placeholder="Enter your city"
+                    >
+                </label>
+            </div>
+
+            <!-- Event Preferences -->
+            <div class="field full">
+                <label>
+                    Event preferences
+                    <textarea
+                        name="notes"
+                        placeholder="Enter your theme, food preferences, decoration ideas, or special requirements..."
+                    ></textarea>
+                </label>
+            </div>
+
+        </div>
+
+        <button class="btn primary" type="submit">
+            ✦ Generate Smart Party Plan
+        </button>
+
+    </form>
+
+</section>
+
+<div id="results" class="result-shell"></div>
+
+{% endblock %}

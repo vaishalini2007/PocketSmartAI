@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="auth">
+
+    <div class="card">
+
+        <p class="eyebrow">WELCOME BACK</p>
+
+        <h2>Sign in to PocketSmart.</h2>
+
+        <p>Continue planning your budget with your saved history.</p>
+
+
+        <form
+            id="loginForm"
+            class="form login-form"
+            style="padding:0; box-shadow:none; border:0; background:transparent;"
+        >
+
+            <!-- Email -->
+            <div class="login-field">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="Enter your email"
+                >
+
+            </div>
+
+
+            <!-- Password -->
+            <div class="login-field">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        required
+                        placeholder="Enter your password"
+                    >
+
+                    <button
+                        type="button"
+                        id="togglePassword"
+                        class="password-eye"
+                        aria-label="Show password"
+                    >
+                        👁️
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Sign In -->
+            <button
+                class="btn primary login-button"
+                type="submit"
+            >
+                Sign In →
+            </button>
+
+
+            <!-- Message -->
+            <p id="msg"></p>
+
+        </form>
+
+
+        <small>
+            New here?
+            <a href="/register">Create an account</a>
+        </small>
+
+    </div>
+
+</section>
+
+
+<style>
+
+/* ============================= */
+/* Login Form                    */
+/* ============================= */
+
+.login-form {
+    width: 100%;
+}
+
+.login-field {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+
+/* Labels */
+
+.login-field > label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+
+/* Normal Email Input */
+
+.login-field > input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ============================= */
+/* Password                      */
+/* ============================= */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+
+/* Password input */
+
+.password-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 48px;
+}
+
+
+/* Eye button */
+
+.password-eye {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 17px;
+    line-height: 1;
+
+    z-index: 2;
+}
+
+
+/* Prevent unwanted button background */
+
+.password-eye:hover {
+    background: transparent;
+}
+
+
+/* ============================= */
+/* Login Button                  */
+/* ============================= */
+
+.login-button {
+    width: 100%;
+    margin-top: 8px;
+}
+
+</style>
+
+
+<script>
+
+/* ============================= */
+/* Password Show / Hide           */
+/* ============================= */
+
+const password =
+    document.getElementById("password");
+
+const togglePassword =
+    document.getElementById("togglePassword");
+
+
+togglePassword.addEventListener("click", function () {
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+        togglePassword.textContent = "🙈";
+
+        togglePassword.setAttribute(
+            "aria-label",
+            "Hide password"
+        );
+
+    } else {
+
+        password.type = "password";
+
+        togglePassword.textContent = "👁️";
+
+        togglePassword.setAttribute(
+            "aria-label",
+            "Show password"
+        );
+
+    }
+
+});
+
+</script>
+
+
+{% endblock %}

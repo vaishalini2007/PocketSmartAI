@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="pagehead">
+
+    <p class="eyebrow">AI JEWELRY PLANNER</p>
+
+    <h1>
+        Find your perfect<br>
+        jewelry match.
+    </h1>
+
+    <p>
+        Explore occasion, style and metal-aware suggestions
+        while keeping your spending on track.
+    </p>
+
+</section>
+
+
+<section class="card form">
+
+    <div class="form-header">
+
+        <div class="form-icon">💎</div>
+
+        <div>
+            <h2>Jewelry Planner</h2>
+            <p>Occasion • Style • Metal • Optional outfit image</p>
+        </div>
+
+    </div>
+
+
+    <form
+        id="jewelryForm"
+        enctype="multipart/form-data"
+    >
+
+        <div class="form-grid">
+
+            <!-- Budget -->
+            <div class="field">
+
+                <label for="budget">
+                    Budget (₹)
+                </label>
+
+                <input
+                    id="budget"
+                    name="budget"
+                    type="number"
+                    min="1"
+                    required
+                    placeholder="Enter your budget"
+                >
+
+            </div>
+
+
+            <!-- Occasion -->
+            <div class="field">
+
+                <label for="occasion">
+                    Occasion
+                </label>
+
+                <select
+                    id="occasion"
+                    name="occasion"
+                    required
+                >
+
+                    <option
+                        value=""
+                        disabled
+                        selected
+                    >
+                        Select your occasion
+                    </option>
+
+                    <option value="Wedding">
+                        Wedding
+                    </option>
+
+                    <option value="Party">
+                        Party
+                    </option>
+
+                    <option value="Festive">
+                        Festive
+                    </option>
+
+                    <option value="Office">
+                        Office
+                    </option>
+
+                    <option value="Date Night">
+                        Date Night
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Style -->
+            <div class="field">
+
+                <label for="style">
+                    Style
+                </label>
+
+                <select
+                    id="style"
+                    name="style"
+                    required
+                >
+
+                    <option
+                        value=""
+                        disabled
+                        selected
+                    >
+                        Select your preferred style
+                    </option>
+
+                    <option value="Elegant">
+                        Elegant
+                    </option>
+
+                    <option value="Minimal">
+                        Minimal
+                    </option>
+
+                    <option value="Traditional">
+                        Traditional
+                    </option>
+
+                    <option value="Statement">
+                        Statement
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Metal -->
+            <div class="field">
+
+                <label for="metal">
+                    Metal
+                </label>
+
+                <select
+                    id="metal"
+                    name="metal"
+                    required
+                >
+
+                    <option
+                        value=""
+                        disabled
+                        selected
+                    >
+                        Select your preferred metal
+                    </option>
+
+                    <option value="Any">
+                        Any
+                    </option>
+
+                    <option value="Gold Tone">
+                        Gold Tone
+                    </option>
+
+                    <option value="Silver Tone">
+                        Silver Tone
+                    </option>
+
+                    <option value="Pearl">
+                        Pearl
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Outfit Image -->
+            <div class="field full">
+
+                <label for="image">
+                    Outfit image (optional)
+                </label>
+
+                <input
+                    id="image"
+                    class="filebox"
+                    name="image"
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                >
+
+                <div class="hint">
+                    Upload a clear outfit photo if you want
+                    image-aware recommendations.
+                </div>
+
+            </div>
+
+
+            <!-- Preferences -->
+            <div class="field full">
+
+                <label for="notes">
+                    Preferences
+                </label>
+
+                <textarea
+                    id="notes"
+                    name="notes"
+                    placeholder="Enter your preferences, e.g. match a blue saree, keep it lightweight, prefer pearl details..."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="btn primary"
+            type="submit"
+        >
+            ✦ Generate Smart Jewelry Plan
+        </button>
+
+    </form>
+
+</section>
+
+
+<div
+    id="results"
+    class="result-shell"
+></div>
+
+
+{% endblock %}
